@@ -1,27 +1,25 @@
-def count(f):
-    called = 0
+def megadec(func):
+    import time
+    import psutil
+    def wrappere(*args, **kwargs):
+        start_time = time.time()
+        process = psutil.Process()
+        mem_before = process.memory_info().rss
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        mem_after = process.memory_info().rss
+        print(f"Функция {func.__name__} запускалась {end_time - start_time:.5f} секунд \nФункция {func.__name__} использовала {mem_after - mem_before} байтов памяти")
+        return result
+    return wrappere
 
-    def wrapped(*args, **kwargs):
-        nonlocal called
-        called += 1
-        return f(*args, **kwargs), called
-    print(called)
-    return wrapped
 
-def benchmark(iters=1):
-    def actual_decorator(func):
-        import time
-
-        def wrapper(*args, **kwargs):
-            total = 0
-            for _ in range(iters):
-                start = time.time()
-                return_value = func(*args, **kwargs)
-                end = time.time()
-                total = total + (end - start)
-            print("[*] Среднее время выполнения: {} секунд.".format(total / iters))
-            return return_value
-
-        return wrapper
-
-    return actual_decorator
+# def memory(func):
+#     import psutil
+#     def wrapper(*args, **kwargs):
+#         process = psutil.Process()
+#         mem_before = process.memory_info().rss
+#         result = func(*args, **kwargs)
+#         mem_after = process.memory_info().rss
+#         print(f"Функция {func.__name__} использовала {mem_after - mem_before} байтов памяти")
+#         return result
+#     return wrapper
