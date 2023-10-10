@@ -40,9 +40,9 @@ def bubblesort(data:list) -> list:
             done = True
     return data
 
-almost = [r for r in range(100)].extend([random.randint(0, 100) for _ in range(100)])
-# t = 
-# almost.extend(t)
+almost = [r for r in range(100)].extend()
+t = 
+almost.extend(t)
 print(almost)
 print(bubblesort(almost))
 # import psutil
