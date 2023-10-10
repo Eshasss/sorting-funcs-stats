@@ -121,7 +121,7 @@ class SortTester(unittest.TestCase):
     def test_3insertsort_small(self):
         self.assertEqual(insertsort(self.small), sorted(self.small))
 
-        @megadec
+    @megadec
     def test_1insertsort_big(self):
         self.assertEqual(insertsort(self.big), sorted(self.big))
 
