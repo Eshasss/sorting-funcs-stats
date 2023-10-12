@@ -39,7 +39,7 @@ print(bubblesort(data))
 #         return f"urapobeda"
 # b = Mylist(4,5,6,7)
 # print(b)
-# b.append(8)
+# b.append(8)sds
 # print(b)
 # easy =  [9, 3, 9, 2, 0, 6]
 # small = [random.randint(-100, 100) for _ in range(10000)]

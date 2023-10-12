@@ -3,7 +3,7 @@ import random
 from functions import bubblesort, merge, mergesort, quicksort, insertsort
 from decorators import megadec
 from classes import MyList
-#python -m unittest testing.py
+#python -m unittest testing.pyj
 class SortTester(unittest.TestCase):
     def setUp(self):
         self.easy = MyList([9, 3, 9, 2, 0, 6])
