@@ -1,7 +1,6 @@
 import random
 
-
-def bubblesort(data:list) -> list:
+def bubblesort(data):
     done = False
     n = len(data)
     if n == 0:
@@ -78,13 +77,3 @@ def quicksort(arr: list):
         for elem in right:
             res.append(elem)
         return res
-
-
-# print(len([4,3,7,8,2,9,7,9]))
-# print([4,3,7,8,2,9,7,9])
-#print(bubblesort1([1,3,4,5,6]))
-# print(insertsort([4,3,7,8,2,9,7,9]))
-# @benchmark(iters= 5)
-# print(mergesort([random.randint(-100, 100) for _ in range(100)]))
-# print(quicksort([random.randint(-100, 100) for _ in range(100)]))
-
