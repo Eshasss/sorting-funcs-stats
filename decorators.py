@@ -12,7 +12,7 @@ def megadec(func):
         mem_after = process.memory_info().rss
         print(result)
         # reads = result.read()
-        # writes = result.write()
+        writes = result.write()
         print(f"{result}Функция {func.__name__} запускалась {end_time - start_time:.5f} секунд \nФункция {func.__name__} использовала {mem_after - mem_before} байтов памяти\n ")
         return result
     return wrapper

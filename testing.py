@@ -121,15 +121,9 @@ class SortTester(unittest.TestCase):
     # def test_3insertsort_small(self):
     #     self.assertEqual(insertsort(self.small), sorted(self.small))
 
-<<<<<<< HEAD
     # @megadec
     # def test_1insertsort_big(self):
     #     self.assertEqual(insertsort(self.big), sorted(self.big))
-=======
-    @megadec
-    def test_1insertsort_big(self):
-        self.assertEqual(insertsort(self.big), sorted(self.big))
->>>>>>> 3fc78c0703bea7fc39dab7cd928c2278363e0733
 
     # @megadec
     # def test_4insertsort_ordered(self):
