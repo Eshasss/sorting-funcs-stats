@@ -103,4 +103,4 @@ def heapsort(arr):
 # data1 = MyList([random.randint(-100, 100) for _ in range(100)])
 # print(quicksort(data))
 # quicksort(data)
-# print(data)
+# print(data)dsds

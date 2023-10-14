@@ -23,6 +23,6 @@ class MyList(list):
 # b[0] = 1
 
 # print(b.__setitem__(2,10))
-# print(b.__getitem__(1))
+# print(b.__getitem__(1))d
 # print(b.__getitem__(1))s
 # print(b.__getitem__(1))

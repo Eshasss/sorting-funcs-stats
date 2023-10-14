@@ -21,7 +21,7 @@ def megadec(func):
 
 
 # def megadec2(func):
-#     import time
+#     import timed
 #     import psutil
 #     def wrapper(*args, **kwargs):
 #         start_time = time.time()

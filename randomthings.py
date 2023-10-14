@@ -14,7 +14,7 @@ data = MyList([random.randint(-100, 100) for _ in range(100)])
 #         reads = result.__read__()
 #         writes = result.__write__()
 
-# def mfunc(z):
+# def mfunc(z):sd
 #     global read
 #     read = 0
 #     def merge(a,b):
