@@ -1,7 +1,7 @@
 import unittest
 import random
 from functions import bubblesort, merge, mergesort, quicksort, insertsort
-from decorators import megadec
+from decorators import megadec, megarec
 from classes import MyList
 #python -m unittest testing.py
 class SortTester(unittest.TestCase):
@@ -24,8 +24,8 @@ class SortTester(unittest.TestCase):
     # def test_2bubblesort_small(self):
     #     self.assertEqual(bubblesort(self.small), sorted(self.small))
 
-    def test_3bubblesort_big(self):
-        self.assertEqual(bubblesort(self.big), sorted(self.big))
+    # def test_3bubblesort_big(self):
+    #     self.assertEqual(bubblesort(self.big), sorted(self.big))
 
     # def test_4bubblesort_ordered(self):
     #     self.assertEqual(bubblesort(self.ordered), self.ordered)
@@ -97,8 +97,8 @@ class SortTester(unittest.TestCase):
     # def test_1insertsort_easy(self):
     #     self.assertEqual(insertsort(self.easy), sorted(self.easy))
      
-    # def test_2insertsort_small(self):
-    #     self.assertEqual(insertsort(self.small), sorted(self.small))
+    def test_2insertsort_small(self):
+        self.assertEqual(insertsort(self.small), sorted(self.small))
 
     # def test_3insertsort_big(self):
     #     self.assertEqual(insertsort(self.big), sorted(self.big))
@@ -117,8 +117,6 @@ class SortTester(unittest.TestCase):
     
     # def test_8insertsort_fullrandom(self):
     #     self.assertEqual(insertsort(self.fullrandom), sorted(self.fullrandom))
-
-        
 
 
 # 1) Лёгкий случай, который можно проверить руками

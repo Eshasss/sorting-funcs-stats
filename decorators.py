@@ -1,5 +1,5 @@
 from classes import MyList
-import functools
+
 def megadec(func):
     import time
     import psutil
@@ -10,15 +10,29 @@ def megadec(func):
         result = func(*args, **kwargs)
         end_time = time.time()
         mem_after = process.memory_info().rss
-        tim = (mem_before- mem_after)
+        tim = (mem_before - mem_after)
         reads = result.__read__()
         writes = result.__write__()
         print(f"Функция {func.__name__} запускалась {end_time - start_time:.5f} секунд \nФункция {func.__name__} использовала {tim} байтов памяти\n {reads} чтений, {writes} записей\n=========")
         return result
     return wrapper
 
-
-
+def megarec(func):
+    import time
+    import psutil
+    import functools
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        process = psutil.Process()
+        mem_before = process.memory_info().rss
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        mem_after = process.memory_info().rss
+        tim = (mem_before - mem_after)
+        print(f"Функция {func.__name__} запускалась {end_time - start_time:.5f} секунд \nФункция {func.__name__} использовала {tim} байтов памяти")
+        return result
+    return wrapper
 
 # def megadec2(func):
 #     import timed

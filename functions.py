@@ -1,6 +1,6 @@
 import random
 from classes import MyList
-from decorators import megadec
+from decorators import megadec, megarec
 @megadec
 def bubblesort(data):
     done = False
@@ -54,8 +54,9 @@ def mergesort(z):
         return z
     mid = len(z)//2
     return (MyList(merge(MyList(mergesort(MyList(z[0: mid]))), MyList(mergesort(MyList(z[mid: len(z)]))))))
-@megadec
+
 def quicksort(arr: MyList) -> MyList:
+    print(arr)
     if len(arr) <= 1:
         return arr
     else:
@@ -77,25 +78,31 @@ def quicksort(arr: MyList) -> MyList:
         for elem in right:
             res.append(elem)
         return arr
-def heapify(arr):
-    n = len(arr)
-    for i in range(n/2 - 1, -1, -1):
-        root = i
-        left = 2 * i + 1
-        right = 2 * i + 2
-        if left < n and arr[left] <= arr[root]:
-            root = left
-        if right < n and arr[right] <= arr[root]:
-            root = right
-        swap(arr, root, i)
-@megadec
-def heapsort(arr):
-    n = len(arr)
-    heapify(arr, n)
-    i = n - 1
-    while i > 0:
-        swap(arr, i, 0)
-        i -= 1
+# data = MyList([random.randint(-100, 100) for _ in range(100)])
+# print(quicksort(data))
+# @megarec
+# def qfunc(arr):
+#     return quicksort(arr)
+# data = MyList([random.randint(-100, 100) for _ in range(100)])
+# print(qfunc(data))
+# def heapify(arr, n, ):
+#     for i in range(n//2 - 1, -1, -1):
+#         root = i
+#         left = 2 * i + 1
+#         right = 2 * i + 2
+#         if left < n and arr[left] <= arr[root]:
+#             root = left
+#         if right < n and arr[right] <= arr[root]:
+#             root = right
+        
+#         heapify(arr, root, i)
+# def heapsort(arr):
+#     n = len(arr)
+#     heapify(arr)
+#     i = n - 1
+#     while i > 0:
+#         heapify(arr, i, 0)
+#         i -= 1
 # def qfunc(data):
 #     result = quicksort(data)
 #     return result
@@ -103,4 +110,4 @@ def heapsort(arr):
 # data1 = MyList([random.randint(-100, 100) for _ in range(100)])
 # print(quicksort(data))
 # quicksort(data)
-# print(data)dsds
+# print(heapsort(data))
