@@ -1,29 +1,104 @@
 import unittest
 import random
 from functions import bubblesort, merge, mergesort, quicksort, insertsort
-from decorators import megadec
+from decorators import megadec, megadec2
 from classes import MyList
-data = MyList([9, 3, 9, 2, 0, 6])
-def bubblesort(data):
-    print(data)
-    done = False
-    n = len(data)
-    if n == 0:
-        return data
-    while done != True:
-        count = 0
-        for i in range(1, n):
-            if data[i-1] > data[i]:
-                data[i], data[i-1] = data[i-1], data[i]
-                count += 1
-        if count == 0:
-            done = True
-    return data
-print(bubblesort(data))
+data = MyList([random.randint(-100, 100) for _ in range(100)])
+
+# def newdec(func):
+#     writes = 0
+#     reads = 0
+#     def wrapper(*args, **kwargs):
+#         nonlocal writes, reads
+#         result = func(*args, **kwargs)
+#         reads = result.__read__()
+#         writes = result.__write__()
+
+# def mfunc(z):
+#     global read
+#     read = 0
+#     def merge(a,b):
+#         c = MyList([])
+#         n = 0
+#         k = 0
+#         f = 0
+#         while f != len(a) + len(b):
+#             if a[n] >= b[k]:
+#                 c.append(b[k])
+#                 k += 1
+#                 f += 1
+#             else:
+#                 c.append(a[n])
+#                 n += 1
+#                 f += 1
+#             if n == len(a):
+#                 c.extend(b[k:len(b)])
+#                 f = len(a) + len(b)
+#             elif k == len(b):
+#                 c.extend(a[n:len(a)])
+#                 f = len(a) + len(b) 
+#         return c
+#     @megadec2
+#     def mergesort(z):
+#         global read
+#         read += 1
+#         if len(z) == 1:
+#             return z
+#         mid = len(z)//2
+        
+#         print(z.__read__())
+#         return MyList(merge(MyList(mergesort(MyList(z[0: mid]))), MyList(mergesort(MyList(z[mid: len(z)])))))
+        
+#     return mergesort(z)
+
+# mfunc(data)
+# def get(data):
+#     return mergesort(data)
+# #mergesort(data)
+# get(data)
 
 
+# def merge(a,b):
+#     c = MyList([])
+#     n = 0
+#     k = 0
+#     f = 0
+#     while f != len(a) + len(b):
+#         if a[n] >= b[k]:
+#             c.append(b[k])
+#             k += 1
+#             f += 1
+#         else:
+#             c.append(a[n])
+#             n += 1
+#             f += 1
+#         if n == len(a):
+#             c.extend(b[k:len(b)])
+#             f = len(a) + len(b)
+#         elif k == len(b):
+#             c.extend(a[n:len(a)])
+#             f = len(a) + len(b) 
+#     return c
+# @megadec
+# def mergesort(z):
+#     global read
+#     read+=4
+#     if len(z) == 1:
+#         return z
+#     mid = len(z)//2
+#     print(read)
+#     return (MyList(merge(MyList(mergesort(MyList(z[0: mid]))), MyList(mergesort(MyList(z[mid: len(z)]))))))
+
+# def recd(func):
+#     read = 0
+#     def wrapper(*arg, **args):
+#         global read 
+#         result
 
 
+# Функция mergesort запускалась 0.47898 секунд
+# Функция mergesort использовала 16384 байтов памяти
+# 0 чтений, 0 записей
 # import random
 # class Mylist(list):
 #     def __init__(self, *data):

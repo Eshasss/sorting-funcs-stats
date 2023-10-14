@@ -1,5 +1,7 @@
 import random
-
+from classes import MyList
+from decorators import megadec
+@megadec
 def bubblesort(data):
     done = False
     n = len(data)
@@ -8,15 +10,14 @@ def bubblesort(data):
     while done != True:
         count = 0
         for i in range(1, n):
-            #print(i, i-1)
             if data[i-1] > data[i]:
                 data[i], data[i-1] = data[i-1], data[i]
                 count += 1
         if count == 0:
             done = True
     return data
-
-def insertsort(data:list) -> list:
+@megadec
+def insertsort(data):
     for i in range(1, len(data)):
         key = data[i]
         j = i - 1
@@ -25,9 +26,8 @@ def insertsort(data:list) -> list:
             j -= 1
         data[j + 1] = key
     return data
-
 def merge(a,b):
-    c = []
+    c = MyList([])
     n = 0
     k = 0
     f = 0
@@ -47,20 +47,20 @@ def merge(a,b):
             c = c+ a[n:len(a)]
             f = len(a) + len(b)
     return (c)
-
+@megadec
 def mergesort(z):
     if len(z) == 1:
         return z
     mid = len(z)//2
-    return (merge(mergesort(z[0: mid]), mergesort(z[mid: len(z)])))
+    return (MyList(merge(MyList(mergesort(MyList(z[0: mid]))), MyList(mergesort(MyList(z[mid: len(z)]))))))
 
-
-def quicksort(arr: list):
+@megadec
+def quicksort(arr: MyList, read = 0) -> MyList:
     if len(arr) <= 1:
-        return arr
+        return arr, read
     else:
-        left = []
-        right = []
+        left = MyList([])
+        right = MyList([])
         pivot = 0
         for i in range(len(arr)):
             if i != pivot:
@@ -70,10 +70,10 @@ def quicksort(arr: list):
                     right.append(arr[i])
         left = quicksort(left)
         right = quicksort(right)
-        res = []
+        res = MyList([])
         for elem in left:
             res.append(elem)
         res.append(arr[pivot])
         for elem in right:
             res.append(elem)
-        return res
+        return res, read

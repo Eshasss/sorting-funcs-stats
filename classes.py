@@ -11,11 +11,13 @@ class MyList(list):
     def __getitem__(self, key):
         self.read += 1
         return super().__getitem__(key)
-        
-    def read(self):
+    
+    def __rd__(self):
+        self.read+=1
+    def __read__(self):
         return self.read
     
-    def write(self):
+    def __write__(self):
         return self.write
     
 # b = MyList([3,4,5])
