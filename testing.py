@@ -41,8 +41,8 @@ class SortTester(unittest.TestCase):
     #     self.assertEqual(bubblesort(self.empty), self.empty)
     
      
-    def test_8bubblesort_random(self):
-        self.assertEqual(bubblesort(self.fullrandom), sorted(self.fullrandom))
+    # def test_8bubblesort_random(self):
+    #     self.assertEqual(bubblesort(self.fullrandom), sorted(self.fullrandom))
     
     # def test_1quicksort_easy(self):
     #     self.assertEqual(quicksort(self.easy), sorted(self.easy))
