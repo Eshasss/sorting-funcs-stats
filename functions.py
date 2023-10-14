@@ -16,6 +16,7 @@ def bubblesort(data):
         if count == 0:
             done = True
     return data
+
 @megadec
 def insertsort(data):
     for i in range(1, len(data)):
@@ -53,11 +54,10 @@ def mergesort(z):
         return z
     mid = len(z)//2
     return (MyList(merge(MyList(mergesort(MyList(z[0: mid]))), MyList(mergesort(MyList(z[mid: len(z)]))))))
-
 @megadec
-def quicksort(arr: MyList, read = 0) -> MyList:
+def quicksort(arr: MyList) -> MyList:
     if len(arr) <= 1:
-        return arr, read
+        return arr
     else:
         left = MyList([])
         right = MyList([])
@@ -76,4 +76,31 @@ def quicksort(arr: MyList, read = 0) -> MyList:
         res.append(arr[pivot])
         for elem in right:
             res.append(elem)
-        return res, read
+        return arr
+def heapify(arr):
+    n = len(arr)
+    for i in range(n/2 - 1, -1, -1):
+        root = i
+        left = 2 * i + 1
+        right = 2 * i + 2
+        if left < n and arr[left] <= arr[root]:
+            root = left
+        if right < n and arr[right] <= arr[root]:
+            root = right
+        swap(arr, root, i)
+@megadec
+def heapsort(arr):
+    n = len(arr)
+    heapify(arr, n)
+    i = n - 1
+    while i > 0:
+        swap(arr, i, 0)
+        i -= 1
+# def qfunc(data):
+#     result = quicksort(data)
+#     return result
+# data = MyList([random.randint(-100, 100) for _ in range(100)])
+# data1 = MyList([random.randint(-100, 100) for _ in range(100)])
+# print(quicksort(data))
+# quicksort(data)
+# print(data)

@@ -8,24 +8,24 @@ class SortTester(unittest.TestCase):
     def setUp(self):
         self.easy = MyList([9, 3, 9, 2, 0, 6])
         self.small = MyList([random.randint(-100, 100) for _ in range(10000)])
-        self.big = [random.randint(-100, 100) for _ in range(100000)]
-        self.ordered = [i for i in range(10000)]
-        self.revers = [k for k in range(10000, 0, -1)]
-        self.almost = [r for r in range(100)]
-        l2 = [random.randint(-100, 100) for t in range(100)]
+        self.big = MyList([random.randint(-100, 100) for _ in range(100000)])
+        self.ordered = MyList([i for i in range(10000)])
+        self.revers = MyList([k for k in range(10000, 0, -1)])
+        self.almost = MyList([r for r in range(100)])
+        l2 = MyList([random.randint(-100, 100) for t in range(100)])
         self.almost.extend(l2)
-        self.empty = []
-        self.fullrandom = [random.randint(-100, 100) for _ in range(random.randint(0, 10000))]
+        self.empty = MyList([])
+        self.fullrandom = MyList([random.randint(-100, 100) for _ in range(random.randint(0, 10000))])
 
     
-    # def test_1  (self):
+    # def test_1(self):
     #     self.assertEqual(bubblesort(self.easy), sorted(self.easy))
 
-    def test_2bubblesort_small(self):
-        self.assertEqual(bubblesort(self.small), sorted(self.small))
+    # def test_2bubblesort_small(self):
+    #     self.assertEqual(bubblesort(self.small), sorted(self.small))
 
-    # def test_3bubblesort_big(self):
-    #     self.assertEqual(bubblesort(self.big), sorted(self.big))
+    def test_3bubblesort_big(self):
+        self.assertEqual(bubblesort(self.big), sorted(self.big))
 
     # def test_4bubblesort_ordered(self):
     #     self.assertEqual(bubblesort(self.ordered), self.ordered)
@@ -41,10 +41,10 @@ class SortTester(unittest.TestCase):
     #     self.assertEqual(bubblesort(self.empty), self.empty)
     
      
-    # def test_8bubblesort_random(self):
-    #     self.assertEqual(bubblesort(self.fullrandom), sorted(self.fullrandom))
+    def test_8bubblesort_random(self):
+        self.assertEqual(bubblesort(self.fullrandom), sorted(self.fullrandom))
     
-    # # def test_1quicksort_easy(self):
+    # def test_1quicksort_easy(self):
     #     self.assertEqual(quicksort(self.easy), sorted(self.easy))
     
      

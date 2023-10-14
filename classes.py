@@ -12,8 +12,6 @@ class MyList(list):
         self.read += 1
         return super().__getitem__(key)
     
-    def __rd__(self):
-        self.read+=1
     def __read__(self):
         return self.read
     
