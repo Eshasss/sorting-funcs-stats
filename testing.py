@@ -1,6 +1,6 @@
 import unittest
 import random
-from functions import bubblesort, merge, mergesort, quicksort, insertsort
+from functions import bubblesort, merge, mergesort, quicksort, insertsort, heapify, heapsort
 from decorators import megadec, megarec
 from classes import MyList
 #python -m unittest testing.py
@@ -70,8 +70,8 @@ class SortTester(unittest.TestCase):
     # def test_8quicksort_fullrandom(self):
     #     self.assertEqual(quicksort(self.fullrandom), sorted(self.fullrandom))
      
-    # def test_1mergesort_easy(self):
-    #     self.assertEqual(mergesort(self.easy), sorted(self.easy))
+    def test_1mergesort_easy(self):
+        self.assertEqual(mergesort(self.easy), sorted(self.easy))
 
     # def test_2mergesort_small(self):
     #     self.assertEqual(mergesort(self.small), sorted(self.small))
@@ -97,8 +97,8 @@ class SortTester(unittest.TestCase):
     # def test_1insertsort_easy(self):
     #     self.assertEqual(insertsort(self.easy), sorted(self.easy))
      
-    def test_2insertsort_small(self):
-        self.assertEqual(insertsort(self.small), sorted(self.small))
+    # def test_2insertsort_small(self):
+    #     self.assertEqual(insertsort(self.small), sorted(self.small))
 
     # def test_3insertsort_big(self):
     #     self.assertEqual(insertsort(self.big), sorted(self.big))
@@ -117,6 +117,31 @@ class SortTester(unittest.TestCase):
     
     # def test_8insertsort_fullrandom(self):
     #     self.assertEqual(insertsort(self.fullrandom), sorted(self.fullrandom))
+
+    # def test_1heapsort_easy(self):
+    #     self.assertEqual(heapsort(self.easy), sorted(self.easy))
+     
+    # def test_2insertsort_small(self):
+    #     self.assertEqual(insertsort(self.small), sorted(self.small))
+
+    # def test_3insertsort_big(self):
+    #     self.assertEqual(insertsort(self.big), sorted(self.big))
+
+    # def test_4insertsort_ordered(self):
+    #     self.assertEqual(insertsort(self.ordered), self.ordered)
+    
+    # def test_5insertsort_revers(self):
+    #     self.assertEqual(insertsort(self.revers), sorted(self.revers))
+  
+    # def test_6insertsort_almost(self):
+    #     self.assertEqual(insertsort(self.almost), sorted(self.almost))
+     
+    # def test_7insertsort_empty(self):
+    #     self.assertEqual(insertsort(self.empty), self.empty)
+    
+    # def test_8insertsort_fullrandom(self):
+    #     self.assertEqual(insertsort(self.fullrandom), sorted(self.fullrandom))
+
 
 
 # 1) Лёгкий случай, который можно проверить руками

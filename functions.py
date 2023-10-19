@@ -27,6 +27,7 @@ def insertsort(data):
             j -= 1
         data[j + 1] = key
     return data
+
 def merge(a,b):
     c = MyList([])
     n = 0
@@ -48,15 +49,15 @@ def merge(a,b):
             c = c+ a[n:len(a)]
             f = len(a) + len(b)
     return (c)
-@megadec
+@megarec
 def mergesort(z):
     if len(z) == 1:
         return z
     mid = len(z)//2
     return (MyList(merge(MyList(mergesort(MyList(z[0: mid]))), MyList(mergesort(MyList(z[mid: len(z)]))))))
 
-def quicksort(arr: MyList) -> MyList:
-    print(arr)
+@megarec
+def quicksort(arr):
     if len(arr) <= 1:
         return arr
     else:
@@ -77,37 +78,25 @@ def quicksort(arr: MyList) -> MyList:
         res.append(arr[pivot])
         for elem in right:
             res.append(elem)
-        return arr
-# data = MyList([random.randint(-100, 100) for _ in range(100)])
-# print(quicksort(data))
-# @megarec
-# def qfunc(arr):
-#     return quicksort(arr)
-# data = MyList([random.randint(-100, 100) for _ in range(100)])
-# print(qfunc(data))
-# def heapify(arr, n, ):
-#     for i in range(n//2 - 1, -1, -1):
-#         root = i
-#         left = 2 * i + 1
-#         right = 2 * i + 2
-#         if left < n and arr[left] <= arr[root]:
-#             root = left
-#         if right < n and arr[right] <= arr[root]:
-#             root = right
-        
-#         heapify(arr, root, i)
-# def heapsort(arr):
-#     n = len(arr)
-#     heapify(arr)
-#     i = n - 1
-#     while i > 0:
-#         heapify(arr, i, 0)
-#         i -= 1
-# def qfunc(data):
-#     result = quicksort(data)
-#     return result
-# data = MyList([random.randint(-100, 100) for _ in range(100)])
-# data1 = MyList([random.randint(-100, 100) for _ in range(100)])
-# print(quicksort(data))
-# quicksort(data)
-# print(heapsort(data))
+        return res
+
+def heapify(data, count, root):
+    largest = root
+    left_child = 2 * root + 1
+    right_child = 2 * root + 2
+    if left_child < count and data[left_child] > data[largest]:
+        largest = left_child
+    if right_child < count and data[right_child] > data[largest]:
+        largest = right_child
+    if largest != root:
+        data[root], data[largest] = data[largest], data[root]
+        heapify(data, count, largest)
+@megadec
+def heapsort(data):
+    length = len(data)
+    for i in range(length // 2 - 1, -1, -1):
+        heapify(data, length, i)
+    for i in range(length - 1, 0, -1):
+        data[i], data[0] = data[0], data[i]
+        heapify(data, i, 0)
+    return data

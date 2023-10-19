@@ -1,10 +1,56 @@
 import unittest
 import random
 from functions import bubblesort, merge, mergesort, quicksort, insertsort
-from decorators import megadec, megadec2
+from decorators import megadec, megarec
 from classes import MyList
 data = MyList([random.randint(-100, 100) for _ in range(100)])
 
+def heapify(data, count, root):
+    largest = root
+    left_child = 2 * root + 1
+    right_child = 2 * root + 2
+    if left_child < count and data[left_child] > data[largest]:
+        largest = left_child
+    if right_child < count and data[right_child] > data[largest]:
+        largest = right_child
+    if largest != root:
+        data[root], data[largest] = data[largest], data[root]
+        heapify(data, count, largest)
+@megadec
+def heapsort(data):
+    length = len(data)
+    for i in range(length // 2 - 1, -1, -1):
+        heapify(data, length, i)
+    for i in range(length - 1, 0, -1):
+        data[i], data[0] = data[0], data[i]
+        heapify(data, i, 0)
+    return data
+heapsort(data)
+print(heapsort(data))
+
+# def quicksort(arr):
+#     if len(arr) <= 1:
+#         return arr
+#     else:
+#         left = MyList([])
+#         right = MyList([])
+#         pivot = 0
+#         for i in range(len(arr)):
+#             if i != pivot:
+#                 if arr[i] <= arr[pivot]:
+#                     left.append(arr[i])
+#                 else:
+#                     right.append(arr[i])
+#         left = quicksort(left)
+#         right = quicksort(right)
+#         res = MyList([])
+#         for elem in left:
+#             res.append(elem)
+#         res.append(arr[pivot])
+#         for elem in right:
+#             res.append(elem)
+#         return res
+# print(quicksort(data))
 # def newdec(func):
 #     writes = 0
 #     reads = 0
