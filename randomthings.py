@@ -29,7 +29,7 @@ heapsort(data)
 print(heapsort(data))
 
 # def quicksort(arr):
-#     if len(arr) <= 1:
+#     if len(arr) <= 1:xzx
 #         return arr
 #     else:
 #         left = MyList([])
